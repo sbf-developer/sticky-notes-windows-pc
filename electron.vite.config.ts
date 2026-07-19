@@ -3,21 +3,35 @@ import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 
 export default defineConfig({
-    main: {
-        plugins: [externalizeDepsPlugin()],
-        build: {
-            rollupOptions: {
-                input: {
-                    index: resolve(__dirname, 'electron/main.ts'),
-                },
-            },
+  main: {
+    plugins: [externalizeDepsPlugin()],
+    build: {
+      rollupOptions: {
+        input: {
+          index: resolve(__dirname, 'electron/main.ts'),
         },
+      },
     },
-},
-preload: {
-    plugins: []
-}
-
-
-
-)
+  },
+  preload: {
+    plugins: [externalizeDepsPlugin()],
+    build: {
+      rollupOptions: {
+        input: {
+          index: resolve(__dirname, 'electron/preload.ts'),
+        },
+      },
+    },
+  },
+  renderer: {
+    root: 'src',
+    build: {
+      rollupOptions: {
+        input: {
+          index: resolve(__dirname, 'src/index.html'),
+        },
+      },
+    },
+    plugins: [react()],
+  },
+});
