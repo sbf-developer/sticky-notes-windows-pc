@@ -1,7 +1,7 @@
-Sticky notes - Windows 
+# Sticky Notes for Windows
 
 <div align="center">
-  <img src="resources/icon.png" alt="Sticky Notes" width="128" />
+  <img src="resources/sticky-notes-image.png" alt="Sticky Notes preview" width="320" />
 </div>
 
-# Sticky Notes - Windows
+Minimal sticky notes app for Windows. Built with Electron + React.
